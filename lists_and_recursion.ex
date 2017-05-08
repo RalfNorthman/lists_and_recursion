@@ -57,7 +57,7 @@ defmodule ListsAndRecursion do
     end
   end
 
-  def my_length(list), do: mapsum list, fn x -> 1 end
+  def my_length(list), do: mapsum list, fn _ -> 1 end
 
   def reverse([]), do: []
   def reverse([head | tail]) do
@@ -65,7 +65,7 @@ defmodule ListsAndRecursion do
   end
   
   defp split_([], _, _), do: []
-  defp split_(list, int, int), do: []
+  defp split_(_, int, int), do: []
   defp split_([head | tail], int, count) do
     [head] ++ split_(tail, int, count + 1)
   end
