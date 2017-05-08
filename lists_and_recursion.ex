@@ -85,4 +85,19 @@ defmodule ListsAndRecursion do
     [first_part] ++ [second_part]
   end
 
+  def take(list, int) do
+    [first_part | [second_part]] = split list, int
+    if int < 0 do
+      first_part
+    else
+      second_part
+    end
+  end
+
+  def flatten([]), do: []
+  def flatten(x) when not is_list(x), do: [x]
+  def flatten([head | tail]) do
+    flatten(head) ++ flatten(tail) 
+  end
+
 end
